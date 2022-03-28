@@ -29,7 +29,9 @@ export class PhotographerList {
 
   /* Je créé ma fonction qui va permettre d'ajouter chaque photographe
 créé (class Photographers) dans le Array de ma classe
-"PhotographerList"
+"PhotographerList" (push)
+La méthode push() = ajouter un ou plusieurs éléments à la fin 
+d'un tableau et renvoyer la nouvelle longueur
 */
   addPhotographer(photographer) {
     this.photographerList.push(photographer);
