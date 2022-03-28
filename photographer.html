@@ -18,29 +18,85 @@
 </head>
 
 <body>
+
   <header>
-    <img src="assets/logo.png" class="logo" />
+    <a href="index.html" title="reload page" id="retour">
+      <img src="assets/logo.png" class="logo FishEye" alt="Logo FishEye" aria-labelledby="retour" />
+    </a>
   </header>
+
   <main id="main">
-    <div class="photograph-header">
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-    </div>
+    <section class="header_profile"> </section>
   </main>
-  <div id="contact_modal">
-    <div class="modal">
-      <header>
-        <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
-      </header>
-      <form>
-        <div>
-          <label>Prénom</label>
-          <input />
+
+  <header>
+    <button class="contact_button" onclick="displayModal()" aria-label="Contacter le photographe">Contactez-moi</button>
+    <img src="assets/icons/close.svg" onclick="closeModal()" />
+  </header>
+
+  <!--FORMULAIRE DE CONTACT-->
+  <!--ACCESS-->
+  <section id="bground" role="dialog" aria-labelledby="form_title">
+    <div class="content">
+      <div class="container">
+        <form id="signup" class="form" action="photographer.html" method="get">
+          <div class="form_header">
+            <!--ID du h1 à reprendre pour le "arialabelledby" / Accessibilité-->
+            <h1 id="form_title">Contactez-moi</h1>
+            <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire de contact" />
+          </div>
+          <p id="form_name"></p>
+          <!--ACCESS-->
+          <div class="form__field">
+            <label for="firstname">Prénom</label>
+            <input type="text" name="firstname" id="firstname" autocomplete="off"
+              placeholder="Veuillez entrer votre prénom" aria-label="Entrez votre prénom" aria-required="true">
+            <small></small>
+          </div>
+          <!--ACCESS-->
+          <div class="form__field">
+            <label for="lastname">Nom</label>
+            <input type="text" name="lastname" id="lastname" autocomplete="off" placeholder="Veuillez entrer votre nom"
+              aria-label="Entrez votre nom" aria-required="true">
+            <small></small>
+          </div>
+          <!--ACCESS-->
+          <div class="form__field">
+            <label for="Email">Email</label>
+            <input type="text" name="email" id="email" autocomplete="off"
+              placeholder="Veuillez entrer votre adresse mail" aria-label="Entrez votre adresse mail"
+              aria-required="true">
+            <small></small>
+          </div>
+          <!--ACCESS-->
+          <div class="form__field">
+            <label for="message">Votre message</label>
+            <textarea name="message" id="message" autocomplete="off" placeholder="Veuillez saisir votre message"
+              aria-required="true"></textarea>
+            <small></small>
+          </div>
+          <!--ACCESS-->
+          <div class="form__field">
+            <input type="submit" value="Envoyer" class="btn__submit" aria-label="Envoyer le message">
+          </div>
+        </form>
+      </div>
+
+      <div id="confirm__message" style="display: none;" role="dialog" aria-labelledby="well_sent">
+        <div class="confirmMsg_close">
+          <img src="assets/icons/close.svg" onclick="closeMessage()" />
         </div>
-        <button class="contact_button">Envoyer</button>
-      </form>
+        <div id="confirm__message--style">
+          <p id="well_sent">Votre message a bien été envoyé !</p>
+        </div>
+        <button class="btn__message" type="button" alt="Fermer"
+          aria-label="Fermer le message de confirmation">Fermer</button>
+      </div>
     </div>
+  </section>
   </div>
+
+
   <script src="/scripts/utils/contactForm.js"></script>
 </body>
 
