@@ -133,13 +133,13 @@ RESET FORM + MESSAGE DE CONFIRMATION
 *****/
 //Lorsque mon formulaire remplit toutes les conditions : form.reset();
 // ET j'ajoute un message de confirmation showConfirmMessage();
-const modalConfirm = document.getElementById("confirm__message");
+const modalConfirm = document.getElementById("confirm_message");
 function showConfirmMessage() {
   form.style.display = "none";
   modalConfirm.style.display = "block";
 }
 //Sur mon message de confirmation, je créé un évènement afin de pouvoir fermer la modale au clic et revenir ainsi sur ma page d'accueil
-const closeConfirmMessage = document.querySelector(".btn__message");
+const closeConfirmMessage = document.querySelector(".btn_message");
 closeConfirmMessage.addEventListener("click", closeMessage);
 function closeMessage() {
   modalConfirm.style.display = "none";

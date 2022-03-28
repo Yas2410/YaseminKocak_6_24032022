@@ -85,8 +85,8 @@ PAGE ACCUEIL*/
 
 /*PROFIL*/
 .contact_button,
-.btn__submit,
-.btn__message {
+.btn_submit,
+.btn_message {
   font-size: 20px;
   /*font-weight: bold;*/
   color: white;
@@ -133,8 +133,22 @@ textarea {
   background-color: rgba(79, 79, 79, 0.4);
 }
 
+.button_close,
+.buttonConfirm_close {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 35px;
+}
+
+.buttonConfirm_close {
+  position: absolute;
+  right: 10px;
+  padding: 10px;
+}
+
 .content,
-#confirm__message {
+#confirm_message {
   margin: 5% auto;
   width: 100%;
   max-width: 400px;
@@ -148,7 +162,7 @@ textarea {
 }
 
 .container,
-#confirm__message {
+#confirm_message {
   background-color: #db8876;
   color: white;
   border-radius: 5px;
@@ -186,17 +200,17 @@ form img {
   width: 7%;
 }
 
-.form__field {
+.form_field {
   margin-bottom: 10px;
 }
 
-.form__field label {
+.form_field label {
   display: block;
   margin-bottom: 5px;
   color: black;
 }
 
-.form__field input {
+.form_field input {
   padding: 5px;
   font-size: 14px;
   display: block;
@@ -205,46 +219,47 @@ form img {
   border-radius: 5px;
 }
 
-.form__field input:focus {
+.form_field input:focus {
   outline: none;
 }
 
-.form__field.error input,
-.form__field.error textarea {
+.form_field.error input,
+.form_field.error textarea {
   border-color: var(--error-color);
 }
 
-.form__field.success input,
-.form__field.success textarea {
+.form_field.success input,
+.form_field.success textarea {
   border-color: var(--success-color);
 }
 
-.form__field small,
+.form_field small,
 .errorMsg {
   color: var(--error-color);
   font-size: 14px;
   font-weight: bold;
 }
 
-.btn__submit {
+.btn_submit {
   width: 150px !important;
   height: 50px;
   font-size: 18px !important;
   border: none !important;
   margin-top: 25px;
+  margin-left: 95px;
 }
 
-.btn__message {
+.btn_message {
   border-radius: 5px;
   padding: 5px;
   width: 35% !important;
   height: 50px;
   margin-bottom: 25px;
-  margin-left: 120px;
+  margin-left: 125px;
 }
 
-.btn__submit:hover,
-.btn__message:hover {
+.btn_submit:hover,
+.btn_message:hover {
   border: 2px solid rgb(255, 72, 0) !important;
   cursor: pointer;
 }
@@ -257,8 +272,12 @@ form img {
 }
 
 /*CONFIRM MESSAGE - CLOSE MODAL*/
-#confirm__message img {
+#confirm_message img {
   width: 7%;
+}
+
+#confirm_message {
+  height: 470px;
 }
 
 .confirmMsg_close {
@@ -269,7 +288,7 @@ form img {
   padding-right: 20px;
 }
 
-#confirm__message--style {
+#confirm_message_style {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -277,13 +296,12 @@ form img {
   height: 50vh;
 }
 
-#confirm__message--style p {
+#confirm_message_style p {
   font-weight: normal;
   font-size: 20px;
   padding: 10px;
   color: black;
 }
-
 /*****
  Modal form END
 *****/

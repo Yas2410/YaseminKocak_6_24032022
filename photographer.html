@@ -25,43 +25,43 @@
     </a>
   </header>
 
-  <main id="main">
-    <section class="header_profile"> </section>
-  </main>
-
-  <header>
+  <main id="main" aria-hidden="false">
+    <!--PROFIL DE CHAQUE PHOTOGRAPHE-->
+    <section class="header_profile" role="banner"> </section>
     <button class="contact_button" onclick="displayModal()" aria-label="Contacter le photographe">Contactez-moi</button>
     <img src="assets/icons/close.svg" onclick="closeModal()" />
-  </header>
+  </main>
+
 
   <!--FORMULAIRE DE CONTACT-->
   <!--ACCESS-->
-  <section id="bground" role="dialog" aria-labelledby="form_title">
-    <div class="content">
+  <section id="bground" class="dialog" role="dialog" aria-labelledby="form_title">
+    <div class="content" class="dialog_windows">
       <div class="container">
         <form id="signup" class="form" action="photographer.html" method="get">
           <div class="form_header">
             <!--ID du h1 à reprendre pour le "arialabelledby" / Accessibilité-->
             <h1 id="form_title">Contactez-moi</h1>
-            <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire de contact" />
+            <button class="button_close fas fa-times" onclick="closeModal()"
+              title="Fermer le formulaire de contact"></button>
           </div>
           <p id="form_name"></p>
           <!--ACCESS-->
-          <div class="form__field">
+          <div class="form_field">
             <label for="firstname">Prénom</label>
             <input type="text" name="firstname" id="firstname" autocomplete="off"
               placeholder="Veuillez entrer votre prénom" aria-label="Entrez votre prénom" aria-required="true">
             <small></small>
           </div>
           <!--ACCESS-->
-          <div class="form__field">
+          <div class="form_field">
             <label for="lastname">Nom</label>
             <input type="text" name="lastname" id="lastname" autocomplete="off" placeholder="Veuillez entrer votre nom"
               aria-label="Entrez votre nom" aria-required="true">
             <small></small>
           </div>
           <!--ACCESS-->
-          <div class="form__field">
+          <div class="form_field">
             <label for="Email">Email</label>
             <input type="text" name="email" id="email" autocomplete="off"
               placeholder="Veuillez entrer votre adresse mail" aria-label="Entrez votre adresse mail"
@@ -69,35 +69,41 @@
             <small></small>
           </div>
           <!--ACCESS-->
-          <div class="form__field">
+          <div class="form_field">
             <label for="message">Votre message</label>
             <textarea name="message" id="message" autocomplete="off" placeholder="Veuillez saisir votre message"
               aria-required="true"></textarea>
             <small></small>
           </div>
           <!--ACCESS-->
-          <div class="form__field">
-            <input type="submit" value="Envoyer" class="btn__submit" aria-label="Envoyer le message">
+          <div class="form_field">
+            <input type="submit" value="Envoyer" class="btn_submit" aria-label="Envoyer le message">
           </div>
         </form>
       </div>
+      <div class="dialog_mask"></div>
 
-      <div id="confirm__message" style="display: none;" role="dialog" aria-labelledby="well_sent">
-        <div class="confirmMsg_close">
-          <img src="assets/icons/close.svg" onclick="closeMessage()" />
-        </div>
-        <div id="confirm__message--style">
+      <!--MESSAGE DE CONFIRMATION D'ENVOI DU FORMULAIRE-->
+      <div id="confirm_message" style="display: none;" class="dialog" role="dialog" aria-labelledby="well_sent">
+        <div class="dialog_windows"></div>
+        <button class="buttonConfirm_close fas fa-times" onclick="closeMessage()"
+          title="Fermer le message de confirmation"></button>
+        <div id="confirm_message_style">
           <p id="well_sent">Votre message a bien été envoyé !</p>
         </div>
-        <button class="btn__message" type="button" alt="Fermer"
+        <button class="btn_message" type="button" alt="Fermer"
           aria-label="Fermer le message de confirmation">Fermer</button>
       </div>
     </div>
+    <div class="dialog_mask"></div>
   </section>
   </div>
 
-
+  <!--Utils-->
   <script src="/scripts/utils/contactForm.js"></script>
+
+  <!--Pages-->
+  <script src="/scripts/pages/photographer.js" type="module"></script>
 </body>
 
 </html>
