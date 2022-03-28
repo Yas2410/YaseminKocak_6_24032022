@@ -19,16 +19,24 @@
 
 
 <body>
-  <header>
-    <img src="assets/logo.png" class="logo" />
-    <h1>Nos photographes</h1>
-  </header>
-  <main id="main">
-    <div class="photographer_section"></div>
-  </main>
-  <script src="scripts/factories/Photographer.js"></script>
-  <script src="scripts/pages/index.js"></script>
-  <script src="scripts/pages/photographer.js"></script>
+
+  <div class="main_page">
+
+    <header>
+      <a href="index.html" title="reload page" id="retour">
+        <img src="assets/logo.png" class="logo FishEye" alt="Logo FishEye" aria-labelledby="retour" />
+      </a>
+      <h1>Nos photographes</h1>
+    </header>
+
+    <main id="main" class="photographer_section">
+    </main>
+
+    <!--Pages-->
+    <script src="scripts/pages/index.js" type="module"></script>
+
+  </div>
+
 </body>
 
 </html>
