@@ -14,38 +14,32 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="css/style.css" />
-  <title>Fisheye : Profil du photographe </title>
+  <title>Fisheye : Profil de </title>
 </head>
 
 <body>
 
   <header>
     <a href="index.html" title="reload page" id="retour">
-      <img src="assets/logo.png" class="logo FishEye" alt="Logo FishEye" aria-labelledby="retour" />
+      <img src="assets/logo.png" class="logo" alt="FishEye Home page" aria-labelledby="retour" />
     </a>
   </header>
 
   <main class="main" aria-hidden="false">
+
     <!--PROFIL DE CHAQUE PHOTOGRAPHE-->
-    <section class="header_profile" role="banner"> </section>
-    <section class="gallery"></section>
-    <!--
-    <button class="contact_button" onclick="displayModal()" aria-label="Contacter le photographe">Contactez-moi
-      <span class="sr-only">Ouvrir le formulaire de contact</span>
-    </button>
-    -->
-    <button class="button_close fas fa-times" onclick="closeModal()" title="Fermer le formulaire de contact"></button>
+    <section class="header_profile" role="banner">
+    </section>
 
 
     <!--MEDIA FILTER-->
     <section class="filter">
       <h3 id="sortBy">Trier par </h3>
-      <div class="menu_dropdown">
-        <div class="dropdown_select">
-          <a href="#" role="button" class="dropdown_select_start" aria-controls="filter_options" aria-haspopup="listbox"
+      <div class="dropdown">
+        <div class="sort_choices">
+          <a href="#" role="button" class="launch_sort_choices" aria-controls="filter-options" aria-haspopup="listbox"
             aria-label="Trier par">
             <span>Popularité</span>
-            <div class="arrow"></div>
             <button class="btn_down">
               <i class="fa-solid fa-chevron-down"></i>
             </button>
@@ -53,7 +47,7 @@
               <i class="fas fa-chevron-up"></i>
             </button>
           </a>
-          <div class="filter_options_container" role="listbox" id="filter_options">
+          <div class="sort_choices_listbox" role="listbox" id="filter-options">
             <a href="#" class="filter_option selected" data-value="popularity" aria-selected="true"
               aria-label="Trier par popularité" role="option">Popularité</a>
             <a href="#" class="filter_option" data-value="date" aria-selected="false" aria-label="Trier par date"
@@ -65,7 +59,11 @@
       </div>
     </section>
 
+    <!--GALLERIE DE MEDIAS-->
+    <section class="gallery"></section>
+
   </main>
+
   <!--FORMULAIRE DE CONTACT-->
   <!--ACCESS-->
   <section id="bground" class="dialog" role="dialog" aria-labelledby="form_title">
@@ -95,7 +93,7 @@
           </div>
           <!--ACCESS-->
           <div class="form_field">
-            <label for="Email">Email</label>
+            <label for="email">Email</label>
             <input type="text" name="email" id="email" autocomplete="off"
               placeholder="Veuillez entrer votre adresse mail" aria-label="Entrez votre adresse mail"
               aria-required="true">
@@ -132,7 +130,24 @@
   </section>
   </div>
 
-  <!--LIGHTBOX-->
+  <!-- LIGHTBOX -->
+  <section class="lightbox" role="dialog" aria-label="lightbox modal">
+    <div class="lightbox_container">
+      <ul class="slider"></ul>
+      <div class="running">
+        <button class="left" aria-label="Média précédent">
+          <em class="fas fa-chevron-left"></em>
+        </button>
+        <button class="right" aria-label="Média suivant">
+          <em class="fas fa-chevron-right"></em>
+        </button>
+        <button class="close" aria-label="Fermer le diaporama">
+          <em class="fas fa-times lightbox_close"></em>
+        </button>
+      </div>
+      <p class="lightbox_media_title"></p>
+    </div>
+  </section>
 
   <!--Utils-->
   <script src="/scripts/utils/contactForm.js"></script>

@@ -15,7 +15,7 @@ export class Photographers {
   }
 
   getFileName() {
-    return this._name.toLowerCase().replace(" ", "");
+    return this.name.toLowerCase().replace(" ", "");
   }
 }
 
@@ -50,6 +50,11 @@ des photographes ajoutés
         }
       });
     } else {
+      /*
+      La méthode slice() renvoie un objet tableau
+      contenant une copie (shallow copy) d'une portion 
+      du tableau d'origine
+      */
       returnedList = this.photographerList.slice();
     }
 

@@ -4,6 +4,7 @@ OUVRIR & FERMER LE FORMULAIRE
 const formData = document.querySelectorAll(".formData");
 const form = document.querySelector("#signup");
 const modal = document.getElementById("bground");
+const openModal = document.querySelectorAll(".openModal");
 
 function displayModal() {
   const modal = document.getElementById("bground");
@@ -24,7 +25,8 @@ const firstnameEl = document.querySelector("#firstname");
 const emailEl = document.querySelector("#email");
 const messageEl = document.querySelector("#message");
 
-//Validation du Prénom
+/*Validation 
+du Prénom*/
 const checkFirstname = () => {
   let valid = false;
   const min = 2;
@@ -49,7 +51,8 @@ const checkFirstname = () => {
   return valid;
 };
 
-//Validation du Nom
+/*Validation 
+du Nom*/
 const checkLastname = () => {
   let valid = false;
   const min = 2;
@@ -74,7 +77,8 @@ const checkLastname = () => {
   return valid;
 };
 
-//Validation de l'adresse mail
+/*Validation 
+du l'adresse Mail*/
 const checkEmail = () => {
   let valid = false;
   const email = emailEl.value.trim();
@@ -89,7 +93,8 @@ const checkEmail = () => {
   return valid;
 };
 
-//Validation du Message
+/*Validation 
+du Message*/
 const checkMessage = () => {
   let valid = false;
   const max = 1000;
@@ -105,7 +110,8 @@ const checkMessage = () => {
   return valid;
 };
 
-//Je vérifie que l'ensemble de mes champs de formulaire est valide :
+/*Je vérifie que l'ensemble de mes champs 
+de formulaire est valide :*/
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -117,8 +123,8 @@ form.addEventListener("submit", function (e) {
   let isFormValid =
     isFirstnameValid && isLastnameValid && isEmailValid && isMessageValid;
 
-  //Si mon formulaire s'avère valide, je le reset et
-  //je fais apparaître un message de confirmation
+  /*Si mon formulaire s'avère valide, je le reset et
+  je fais apparaître un message de confirmation*/
   if (isFormValid) {
     form.reset(); //Reset du formulaire et remise à zéro des entrées
     showConfirmMessage(); //Message de confirmation d'envoi du formulaire
@@ -131,14 +137,16 @@ form.addEventListener("submit", function (e) {
 /*****
 RESET FORM + MESSAGE DE CONFIRMATION
 *****/
-//Lorsque mon formulaire remplit toutes les conditions : form.reset();
-// ET j'ajoute un message de confirmation showConfirmMessage();
+/*Lorsque mon formulaire remplit toutes les conditions : form.reset();
+ET j'ajoute un message de confirmation showConfirmMessage()*/
 const modalConfirm = document.getElementById("confirm_message");
 function showConfirmMessage() {
   form.style.display = "none";
   modalConfirm.style.display = "block";
 }
-//Sur mon message de confirmation, je créé un évènement afin de pouvoir fermer la modale au clic et revenir ainsi sur ma page d'accueil
+/*Sur mon message de confirmation, je créé un évènement 
+afin de pouvoir fermer la modale au clic et revenir 
+ainsi sur ma page d'accueil*/
 const closeConfirmMessage = document.querySelector(".btn_message");
 closeConfirmMessage.addEventListener("click", closeMessage);
 function closeMessage() {
@@ -148,8 +156,8 @@ function closeMessage() {
 
 /*****
  *****/
-//Je créé les variables qui vont permettre de mettre en place des
-//obligations quant aux entrées dans le formulaire
+/*Je créé les variables qui vont permettre de mettre en place des
+obligations quant aux entrées dans le formulaire*/
 const isRequired = (value) => (value === "" ? false : true);
 const isMinimum = (length, min) => (length < min ? false : true);
 const isMaximum = (length, max) => (length > max ? false : true);
@@ -159,9 +167,9 @@ const isEmailValid = (email) => {
   return re.test(email);
 };
 
-//En cas d'erreur sur mon champ de formulaire :
-// Je fais apparaître ma classe "error" qui va encadrer l'input en rouge
-// Et informer l'utilisateur avec un message indiquant l'erreur
+/*En cas d'erreur sur mon champ de formulaire :
+Je fais apparaître ma classe "error" qui va encadrer l'input en rouge
+Et informer l'utilisateur avec un message indiquant l'erreur*/
 const showError = (input, message) => {
   const formField = input.parentElement;
   formField.classList.remove("success");
@@ -170,9 +178,9 @@ const showError = (input, message) => {
   error.textContent = message;
 };
 
-//Si tout est OK sur mon champ de formulaire :
-// Je fais apparaître ma classe "success" qui va encadrer l'input en vert
-// Et informer l'utilisateur que l'entrée est valide
+/*Si tout est OK sur mon champ de formulaire :
+Je fais apparaître ma classe "success" qui va encadrer l'input en vert
+Et informer l'utilisateur que l'entrée est valide*/
 const showSuccess = (input) => {
   const formField = input.parentElement;
   formField.classList.remove("error");
@@ -184,7 +192,6 @@ const showSuccess = (input) => {
 /*****
 BONUS
  *****/
-//Faire apparaitre "en direct" si un input est valide ou non
 const debounce = (fn, delay = 500) => {
   let timeoutId;
   return (...args) => {
@@ -198,7 +205,7 @@ const debounce = (fn, delay = 500) => {
     }, delay);
   };
 };
-
+/*Faire apparaitre "en direct" si un input est valide ou non*/
 form.addEventListener(
   "input",
   debounce(function (e) {

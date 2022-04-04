@@ -54,40 +54,29 @@ sur ma page "index.html" (section ayant pour classe "photographer_section",
 function displayPhotographers() {
   const main = document.querySelector(".photographer_section");
 
-  /* Pour chaque photographe de ma page d'accueil, je souhaite afficher :*/
+  /* Pour chaque photographe de ma page d'accueil, je souhaite afficher :
+  - Sa photo de profil avec lien renvoyant sur son propre profil
+  - Sa localisation
+  - Sa devise
+  - Son tarif journalier
+  */
   photographerList.getPhotographerList().forEach((photographer) => {
-    const profileLink = "photographer.html?id=" + photographer.id;
-    const profilePicture =
-      "assets/medias/photographersID/" + photographer.portrait;
-
-    /*La carte de chaque photographe
-    - Photo de profil avec lien renvoyant au profil du photographe au clic
-    - Nom du photographe
-    - Sa localisation
-    */
     const photographerCard = document.createElement("div");
-    photographerCard.classList.add("photographer_card");
-    const cardLink = document.createElement("a");
-    cardLink.classList.add("profile_link");
-    const cardImg = document.createElement("img");
-    cardImg.classList.add("photographer_pix");
-    const photographerName = document.createElement("h2");
-    photographerName.classList.add("photographer_name");
-    const photographerLocation = document.createElement("h3");
-    photographerLocation.classList.add("photographer_location");
-
-    cardLink.setAttribute("role", "link");
-    cardLink.href = profileLink;
-    cardImg.src = profilePicture;
-    cardImg.alt = "";
-
-    photographerName.textContent = photographer.name;
-    photographerLocation.textContent =
-      photographer.city + ", " + photographer.country;
-
+    photographerCard.classList.add("photographers");
+    const infoCard = `
+    <a href="photographer.html?id=${photographer.id}"
+                    aria-label="Aller sur la page du photographe ${photographer.name}. Ce dernier est basé à ${photographer.city}, ${photographer.country}.
+                    Son tarif journalier est de ${photographer.price} et sa devise est ${photographer.tagline}"
+                    >
+                      <img class="photographers_img" src="../assets/medias/photographersID/${photographer.portrait}"; alt="Photo de profil du photographe ${photographer.name}">
+                      <h2 class="photographers_name">${photographer.name}</h2>
+                    </a>
+                    <h3 class="photographers_localization">${photographer.city}, ${photographer.country}</h3>
+                    <p class="photographers_motto">${photographer.tagline}</p>
+                    <span class="photographers_price">${photographer.price}€/jour</span>
+    `;
+    photographerCard.innerHTML = infoCard;
     main.append(photographerCard);
-    photographerCard.append(cardLink, photographerLocation);
-    cardLink.append(cardImg, photographerName);
   });
 }
 

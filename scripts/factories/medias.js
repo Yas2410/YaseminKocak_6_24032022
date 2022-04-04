@@ -4,22 +4,25 @@ de créer des nouvelles instances de ma classe Medias (= créer
 des images / vidéos)
 */
 
-export class Medias {
-  createMedia(type, date, id, link, likes, photographerId, path) {
+export class Media {
+  createMedia(type, alt, date, id, link, likes, photographerId, path) {
     /*Si le type de Media = image, 
     je créé une instance d'image et 
     retourne les informations suivantes :
     */
-    if (type === "image") {
+    if (type === "jpg") {
       const photo = new Photo();
       photo.type = type;
-      photo.alt = link;
+      photo.alt = alt;
       photo.date = new Date(date);
       photo.id = id;
       photo.link = link;
       photo.likes = likes;
       photo.photographerId = photographerId;
-      photo.title = link.replace(".jpg", "").replaceAll("_", " ");
+      photo.title = link
+        .replace(".jpg", "")
+        .replaceAll("_", " ")
+        .replace("Event", "");
       photo.path = path + link;
       return photo;
 
@@ -27,10 +30,10 @@ export class Medias {
     je créé une instance de video et 
     retourne les informations suivantes :
     */
-    } else if (type === "video") {
+    } else if (type === "mp4") {
       const video = new Video();
       video.type = type;
-      video.alt = link;
+      video.alt = alt;
       video.date = new Date(date);
       video.id = id;
       video.link = link;
@@ -45,33 +48,35 @@ export class Medias {
 /*Pour chaque photographe, je créé une instance des medias "image"
 et les retourne sur son profil respectif :
 */
-export class Photo extends Medias {
+export class Photo extends Media {
   createImg(photographer) {
-    const mediaLink = `./medias/${photographer}/`;
-    const mediaImgCard = document.createElement("img");
-    mediaImgCard.src = mediaLink + this.link;
-    mediaImgCard.alt = this.link;
-    mediaImgCard.classList.add("media_img");
+    const linkToPhoto = `../assets/medias/${photographer}/`;
 
-    return mediaImgCard;
+    const pictureCard = document.createElement("img");
+
+    pictureCard.src = linkToPhoto + this.link;
+    pictureCard.alt = this.alt;
+    pictureCard.classList.add("media-img");
+
+    return pictureCard;
   }
 }
 
 /*Pour chaque photographe, je créé une instance des medias "vidéo"
 et les retourne sur son profil respectif :
 */
-export class Video extends Medias {
+export class Video extends Media {
   createImg(photographer) {
-    const mediaLink = `./medias/${photographer}/`;
-    const mediaVideoCard = document.createElement("video");
-    mediaVideoCard.loop = true;
-    mediaVideoCard.muted = true;
+    const linkToPhoto = `../assets/medias/${photographer}/`;
+    const cardsMediaVideo = document.createElement("video");
+    cardsMediaVideo.loop = true;
+    cardsMediaVideo.muted = true;
 
-    mediaVideoCard.src = mediaLink + this.link;
-    mediaVideoCard.alt = this.link;
-    mediaVideoCard.classList.add("media_img");
+    cardsMediaVideo.src = linkToPhoto + this.link;
+    cardsMediaVideo.alt = this.alt;
+    cardsMediaVideo.classList.add("media-img");
 
-    return mediaVideoCard;
+    return cardsMediaVideo;
   }
 }
 
@@ -98,7 +103,7 @@ l'ensemble de mes médias ajoutés et de les trier en fonction de
 la date, du titre ou du nombre de likes (popularité)
 */
   getMediaList(sort) {
-    const localMediaList = this.mediaList.slice();
+    const galleryDisplay = this.mediaList.slice();
     let returnedList = [];
 
     /*
@@ -106,7 +111,7 @@ FILTRE permettant de classer les différents médias
 en fonction de l'option sélectionnée avec la methode SORT : 
 
 DATE / POPULARITE -> ma methode sort() va me retourner l'ordre des dates en soustrayant 2 dates et en retournant
-la différence entre ces 2 dates. Idem pour les "Likes" (Popularité)
+la différence entre ces 2 dates. Idem pour les "Likes"
 TITRE -> methode localeCompare() qui va indiquer si l'élément en question se situe
 avant, après ou est identique à l'élement passé en paramètre, ce qui va permettre de les classer
 (nombre - : la string se situe avant celle à comparer)
@@ -114,31 +119,41 @@ avant, après ou est identique à l'élement passé en paramètre, ce qui va per
 (0 : les 2 strings sont au même niveau)
 */
     if (sort === "popularity") {
-      localMediaList.sort((a, b) => b.likes - a.likes);
+      galleryDisplay.sort((a, b) => b.likes - a.likes);
     } else if (sort === "date") {
-      localMediaList.sort((a, b) => b.date - a.date);
+      galleryDisplay.sort((a, b) => b.date - a.date);
     } else if (sort === "title") {
-      localMediaList.sort((a, b) =>
-        a.title.localeCompare(b.title, { ignorePunctuation: true })
-      );
+      galleryDisplay.sort((a, b) => {
+        a.title.localeCompare(b.title, { ignorePunctuation: true });
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      });
     }
 
     if (length !== 0) {
-      localMediaList.forEach((media) => {
+      galleryDisplay.forEach((media) => {
         if (!returnedList.includes(media)) {
           returnedList.push(media);
         }
       });
+      /*
+      La méthode slice() renvoie un objet tableau
+      contenant une copie (shallow copy) d'une portion 
+      du tableau d'origine
+      */
     } else {
-      returnedList = localMediaList.slice();
+      returnedList = galleryDisplay.slice();
     }
 
     return returnedList;
   }
-
   /* Je créé ma fonction qui va permettre de récuperer le nombre
-    de likes sur chaque media et d'en comptabiliser le total
-*/
+    de likes sur chaque media et d'en comptabiliser le total*/
   getLikes() {
     let sum = 0;
     this.mediaList.forEach((media) => {
