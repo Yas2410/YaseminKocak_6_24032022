@@ -25,7 +25,7 @@ function closeModal() {
   modal.style.display = "none";
   modal.setAttribute("aria-hidden", "true");
   main.setAttribute("aria-hidden", "false");
-  openModal.focus();
+  /*openModal.focus();*/
   body.classList.remove("no-scroll");
   form.setAttribute("tabindex", "-1");
   modal.removeEventListener("keydown", onKey);
