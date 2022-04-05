@@ -5,15 +5,39 @@ const formData = document.querySelectorAll(".formData");
 const form = document.querySelector("#signup");
 const modal = document.getElementById("bground");
 const openModal = document.querySelectorAll(".openModal");
+const main = document.querySelector(".main");
+const contact = document.querySelector(".contact_button");
+let body = document.querySelector(".photographer_bodyPage");
 
 function displayModal() {
   const modal = document.getElementById("bground");
   modal.style.display = "block";
+  modal.setAttribute("aria-hidden", "false");
+  main.setAttribute("aria-hidden", "true");
+  body.classList.add("no-scroll");
+  firstnameEl.focus();
+  form.setAttribute("tabindex", "0");
 }
 
 function closeModal() {
   const modal = document.getElementById("bground");
   modal.style.display = "none";
+  modal.setAttribute("aria-hidden", "true");
+  main.setAttribute("aria-hidden", "false");
+  body.classList.remove("no-scroll");
+  form.setAttribute("tabindex", "-1");
+  modal.removeEventListener("keydown", onKey);
+}
+
+/*ACCESSIBILITE CLAVIER AFIN DE FERMER MON FORMULAIRE ET MON MESSAGE
+DE CONFIRMATION AVEC LA TOUCHE ESCAPE*/
+modal.addEventListener("keydown", (e) => onKey(e));
+function onKey(e) {
+  let keynum = e.key;
+  if (keynum === "Escape") {
+    closeModal();
+    closeMessage();
+  }
 }
 
 /*****
@@ -153,7 +177,6 @@ function closeMessage() {
   modalConfirm.style.display = "none";
   window.location.reload();
 }
-
 /*****
  *****/
 /*Je créé les variables qui vont permettre de mettre en place des

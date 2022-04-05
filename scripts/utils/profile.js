@@ -18,7 +18,7 @@ function displayProfile(currentPhotographer, displayMediaList) {
                           <h2 class="profile_localization">${currentPhotographer.city}, ${currentPhotographer.country}</h2>
                           <p class="profile_motto">${currentPhotographer.tagline}</p>
                       </div>
-  <button class="contact_button" onclick="displayModal()" 
+  <button class="contact_button" type="button" role="button" tabindex="0" onclick="displayModal()" 
   aria-label="Contacter le photographe ${currentPhotographer.name}" >Contactez-moi
         </button>
         <img src="../assets/medias/photographersID/${currentPhotographer.portrait}" class="profile_img" alt="Photo de profil du photographe ${currentPhotographer.name}">
