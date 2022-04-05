@@ -37,17 +37,18 @@
       <h3 id="sortBy">Trier par </h3>
       <div class="dropdown">
         <div class="sort_choices">
-          <a href="#" role="button" class="launch_sort_choices" aria-controls="filter-options" aria-haspopup="listbox"
+          <a href="#" class="launch_sort_choices" aria-controls="filter-options" aria-haspopup="listbox"
             aria-label="Trier par">
             <span>Popularité</span>
-            <button class="btn_down" type="button" role="button" aria-haspopup="true" aria-expanded="false"
-              tabindex="0">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <button class="btn_up" type="button" role="button" aria-haspopup="true" aria-expanded="true" tabindex="0">
-              <i class="fas fa-chevron-up"></i>
-            </button>
           </a>
+          <button class="btn_down" type="button" aria-haspopup="true" aria-expanded="false"
+            aria-label="Ouvrir les filtres" tabindex="0">
+            <em class="fa-solid fa-chevron-down"></em>
+          </button>
+          <button class="btn_up" type="button" aria-haspopup="true" aria-expanded="true" aria-label="Fermer les filtres"
+            tabindex="0" style="display: none;">
+            <em class="fas fa-chevron-up"></em>
+          </button>
           <div class="sort_choices_listbox" role="listbox" aria-expanded="true" id="filter-options">
             <a href="#" class="filter_option selected" data-value="popularity" aria-selected="true"
               aria-label="Trier par popularité" role="option">Popularité</a>
@@ -69,7 +70,7 @@
   <!--CONTACT FORM-->
   <!--ACCESS-->
   <section id="bground" class="dialog" role="dialog" aria-hidden="true" tabindex="-1" aria-labelledby="contact_infos">
-    <div class="content" class="dialog_windows">
+    <div class="content">
       <div class="container">
         <form id="signup" class="form" action="photographer.html" method="get">
           <div class="form_header">
@@ -78,7 +79,6 @@
             <button class="button_close fas fa-times" onclick="closeModal()"
               title="Fermer le formulaire de contact"></button>
           </div>
-          <p id="form_name"></p>
           <!--ACCESS-->
           <div class="form_field">
             <label for="firstname">Prénom</label>
@@ -117,17 +117,16 @@
 
       <!--CONFIRM MESSAGE AFTER FORM SUBMIT-->
       <div id="confirm_message" style="display: none;" class="dialog" role="dialog" aria-labelledby="well_sent">
-        <button class="buttonConfirm_close fas fa-times" role="button" onclick="closeMessage()"
+        <button class="buttonConfirm_close fas fa-times" onclick="closeMessage()"
           title="Fermer le message de confirmation"></button>
         <div id="confirm_message_style">
           <p id="well_sent">Votre message a bien été envoyé !</p>
         </div>
-        <button class="btn_message" type="button" alt="Fermer"
-          aria-label="Fermer le message de confirmation">Fermer</button>
+        <button class="btn_message" type="button" aria-label="Fermer le message de confirmation">Fermer</button>
       </div>
     </div>
   </section>
-  </div>
+
 
   <!-- LIGHTBOX -->
   <section class="lightbox" role="dialog" aria-label="Diaporama de l'ensemble des médias" tabindex="-1">
@@ -144,7 +143,7 @@
           <em class="fas fa-times lightbox_close"></em>
         </button>
       </div>
-      <p class="lightbox_media_title"></p>
+      <span class="lightbox_media_title"></span>
     </div>
   </section>
 

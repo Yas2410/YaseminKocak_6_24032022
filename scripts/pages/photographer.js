@@ -208,7 +208,7 @@ function displayLikesInfo() {
   totalLikesSection.classList.add("total_section");
   const priceInfo = document.createElement("div");
   priceInfo.classList.add("price_info");
-  const price = document.createElement("p");
+  const price = document.createElement("span");
   price.classList.add("price");
   price.textContent = `${currentPhotographer.price}€ / jour`;
   const totalLikesInfo = document.createElement("div");

@@ -405,7 +405,10 @@ form img {
 .btn_down,
 .btn_up {
   margin-left: 20px;
-  font-size: 16px;
+  font-size: 19px;
+  position: absolute;
+  top: 15px;
+  right: 10px;
 }
 
 .down {
@@ -580,7 +583,7 @@ video {
   /*animation: apparition-down .8s ease-in-out;*/
 }
 
-.lightbox_container p {
+.lightbox_container span {
   font-size: 22px;
   font-weight: bold;
   margin: 0 225px 0;

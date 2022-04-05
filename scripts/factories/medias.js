@@ -19,10 +19,8 @@ export class Media {
       photo.link = link;
       photo.likes = likes;
       photo.photographerId = photographerId;
-      photo.title = link
-        .replace(".jpg", "")
-        .replaceAll("_", " ")
-        .replace("Event", "");
+      photo.title = link.replace(".jpg", "").replaceAll("_", " ");
+      /*.replace("Event", "");*/
       photo.path = path + link;
       return photo;
 
