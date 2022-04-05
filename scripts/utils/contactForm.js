@@ -8,6 +8,7 @@ const openModal = document.querySelectorAll(".openModal");
 const main = document.querySelector(".main");
 const contact = document.querySelector(".contact_button");
 let body = document.querySelector(".photographer_bodyPage");
+const btnClose = document.querySelector(".button_close");
 
 function displayModal() {
   const modal = document.getElementById("bground");
@@ -15,7 +16,7 @@ function displayModal() {
   modal.setAttribute("aria-hidden", "false");
   main.setAttribute("aria-hidden", "true");
   body.classList.add("no-scroll");
-  firstnameEl.focus();
+  modal.focus();
   form.setAttribute("tabindex", "0");
 }
 
@@ -24,6 +25,7 @@ function closeModal() {
   modal.style.display = "none";
   modal.setAttribute("aria-hidden", "true");
   main.setAttribute("aria-hidden", "false");
+  openModal.focus();
   body.classList.remove("no-scroll");
   form.setAttribute("tabindex", "-1");
   modal.removeEventListener("keydown", onKey);

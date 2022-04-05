@@ -27,7 +27,7 @@
 
   <main class="main">
 
-    <!--PROFIL DE CHAQUE PHOTOGRAPHE-->
+    <!--PHOTOGRAPHER PROFILE-->
     <section class="header_profile" role="banner">
     </section>
 
@@ -40,14 +40,15 @@
           <a href="#" role="button" class="launch_sort_choices" aria-controls="filter-options" aria-haspopup="listbox"
             aria-label="Trier par">
             <span>Popularité</span>
-            <button class="btn_down">
+            <button class="btn_down" type="button" role="button" aria-haspopup="true" aria-expanded="false"
+              tabindex="0">
               <i class="fa-solid fa-chevron-down"></i>
             </button>
-            <button class="btn_up">
+            <button class="btn_up" type="button" role="button" aria-haspopup="true" aria-expanded="true" tabindex="0">
               <i class="fas fa-chevron-up"></i>
             </button>
           </a>
-          <div class="sort_choices_listbox" role="listbox" id="filter-options">
+          <div class="sort_choices_listbox" role="listbox" aria-expanded="true" id="filter-options">
             <a href="#" class="filter_option selected" data-value="popularity" aria-selected="true"
               aria-label="Trier par popularité" role="option">Popularité</a>
             <a href="#" class="filter_option" data-value="date" aria-selected="false" aria-label="Trier par date"
@@ -59,21 +60,21 @@
       </div>
     </section>
 
-    <!--GALLERIE DE MEDIAS-->
+    <!--MEDIA GALLERY-->
     <section class="gallery"></section>
 
 
   </main>
 
-  <!--FORMULAIRE DE CONTACT-->
+  <!--CONTACT FORM-->
   <!--ACCESS-->
-  <section id="bground" class="dialog" role="dialog" aria-modal="true" tabindex="-1" aria-labelledby="contact_infos">
+  <section id="bground" class="dialog" role="dialog" aria-hidden="true" tabindex="-1" aria-labelledby="contact_infos">
     <div class="content" class="dialog_windows">
       <div class="container">
         <form id="signup" class="form" action="photographer.html" method="get">
           <div class="form_header">
             <!--ID du h1 à reprendre pour le "arialabelledby" / Accessibilité-->
-            <h1 id="contact_infos">Contactez-moi</h1>
+            <h1 id="contact_infos" class="contact_header">Contactez-moi</h1>
             <button class="button_close fas fa-times" onclick="closeModal()"
               title="Fermer le formulaire de contact"></button>
           </div>
@@ -109,15 +110,13 @@
           </div>
           <!--ACCESS-->
           <div class="form_field">
-            <input type="submit" value="Envoyer" class="btn_submit" aria-label="Envoyer le message">
+            <button type="submit" value="Envoyer" class="btn_submit" aria-label="Envoyer le message">Envoyer</button>
           </div>
         </form>
       </div>
-      <div class="dialog_mask"></div>
 
-      <!--MESSAGE DE CONFIRMATION D'ENVOI DU FORMULAIRE-->
+      <!--CONFIRM MESSAGE AFTER FORM SUBMIT-->
       <div id="confirm_message" style="display: none;" class="dialog" role="dialog" aria-labelledby="well_sent">
-        <div class="dialog_windows"></div>
         <button class="buttonConfirm_close fas fa-times" role="button" onclick="closeMessage()"
           title="Fermer le message de confirmation"></button>
         <div id="confirm_message_style">
@@ -127,12 +126,11 @@
           aria-label="Fermer le message de confirmation">Fermer</button>
       </div>
     </div>
-    <div class="dialog_mask"></div>
   </section>
   </div>
 
   <!-- LIGHTBOX -->
-  <section class="lightbox" role="dialog" aria-label="lightbox modal">
+  <section class="lightbox" role="dialog" aria-label="Diaporama de l'ensemble des médias" tabindex="-1">
     <div class="lightbox_container">
       <ul class="slider"></ul>
       <div class="running">

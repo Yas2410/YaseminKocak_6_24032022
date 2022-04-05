@@ -98,6 +98,10 @@ function launchLightbox() {
   const lightbox = document.querySelector(".lightbox");
   lightbox.style.display = "flex";
   main.classList.add("anti-scroll");
+  lightbox.setAttribute("aria-hidden", "false");
+  lightbox.setAttribute("tabindex", "0");
+  main.setAttribute("aria-hidden", "true");
+  main.setAttribute("tabindex", "-1");
   close.focus();
   main.style.display = "none";
 }

@@ -85,6 +85,10 @@ Section qui va contenir la gallerie de médias
 pour chacun des photographes
  */
   const gallery = document.querySelector(".gallery");
+  gallery.setAttribute(
+    "aria-label",
+    `L'ensemble des réalisations du photographe ${currentPhotographer.name}`
+  );
 
   /*Va permettre le tri des médias*/
   const sort = document
@@ -224,6 +228,12 @@ function displayLikesInfo() {
 }
 
 function launchPage() {
+  const contactHeader = document.querySelector(".contact_header");
+  contactHeader.textContent = `Contactez-moi ${currentPhotographer.name}`;
+  contactHeader.setAttribute(
+    "aria-label",
+    `formulaire pour contacter le photographe ${currentPhotographer.name}`
+  );
   document.title += " - " + currentPhotographer.name;
 
   displayProfile(currentPhotographer, displayMediaList);
