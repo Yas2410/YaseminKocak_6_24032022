@@ -33,6 +33,8 @@ function displayLightbox(media, displayMediaList, currentPhotographer) {
   });
 
   /*PASSER A LA DIAPO SUIVANTE*/
+  /*La méthode indexOf() renvoie le premier indice pour lequel 
+  on trouve un élément donné dans un tableau.*/
   function nextSlide(e) {
     e.preventDefault;
     if (displayMediaList.indexOf(currentMedia) + 1 >= displayMediaList.length) {

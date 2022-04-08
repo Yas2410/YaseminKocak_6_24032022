@@ -89,7 +89,7 @@ const checkLastname = () => {
   } else if (!isMinimum(lastname.length, min)) {
     showError(
       lastnameEl,
-      "Votre saisie doit comporter au minimum ${min} caractères."
+      `Votre saisie doit comporter au minimum ${min} caractères.`
     );
   } else if (!lastnameEl.value.trim().match(lastnameRegex)) {
     showError(
@@ -152,11 +152,16 @@ form.addEventListener("submit", function (e) {
   /*Si mon formulaire s'avère valide, je le reset et
   je fais apparaître un message de confirmation*/
   if (isFormValid) {
+    /***********/
+    /*AJOUT DES CONSOLE.LOG AFFICHANT LE CONTENU DES CHAMPS DU FORMULAIRE
+    CORRECTIF SOUTENANCE*/
+    /***********/
+    console.log("Prénom : " + firstnameEl.value);
+    console.log("Nom : " + lastnameEl.value);
+    console.log("Email : " + emailEl.value);
+    console.log("Message : " + messageEl.value);
     form.reset(); //Reset du formulaire et remise à zéro des entrées
     showConfirmMessage(); //Message de confirmation d'envoi du formulaire
-    console.log(
-      "L'utilisateur avec l'adresse mail suivante vous a envoyé un message :"
-    );
   }
 });
 

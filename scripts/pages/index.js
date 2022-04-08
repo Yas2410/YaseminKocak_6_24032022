@@ -66,7 +66,7 @@ function displayPhotographers() {
     const infoCard = `
     <a href="photographer.html?id=${photographer.id}"
                     aria-label="Aller sur la page du photographe ${photographer.name}. Ce dernier est basé à ${photographer.city}, ${photographer.country}.
-                    Son tarif journalier est de ${photographer.price} et sa devise est ${photographer.tagline}"
+                    Son tarif journalier est de ${photographer.price} euros et sa devise est ${photographer.tagline}"
                     >
                       <img class="photographers_img" src="../assets/medias/photographersID/${photographer.portrait}"; alt="Photo de profil du photographe ${photographer.name}">
                       <h2 class="photographers_name">${photographer.name}</h2>
